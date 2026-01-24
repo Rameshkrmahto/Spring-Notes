@@ -1,0 +1,212 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue255;\red255\green255\blue255;
+\red144\green1\blue18;\red107\green0\blue1;\red220\green0\blue5;\red19\green118\blue70;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c100000;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c63922\c8235\c8235;\cssrgb\c50196\c0\c0;\cssrgb\c89804\c0\c0;\cssrgb\c3529\c52549\c34510;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh14400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs70 \cf0  
+\f1\b Conditional Rendering \
+	1. Render a new component according to state and situation.\
+	2. Render a block inside component \
+\
+\
+ 											Controlled Components\
+    
+\f0\b0 - Component comprises of presentation, styles and logic.\
+	- If any component presentation, style and logic can be changed by the data\
+	  passed from parent component, then it is known 
+\f1\b Controlled Component.\
+	
+\f0\b0 - The component presentation, style and logic can be controlled by using \
+	   properties. [ Props ]\
+	- Controlled component is a function with \'93Props\'94 as parameters. \
+\
+			Syntax:\
+					function  Component(props)\
+					\{\
+					\}\
+\
+	 - \'93
+\f1\b Props\'94 
+\f0\b0 is object type with \'93Key / Value\'94 collection. 
+\f1\b \
+	 \
+			
+\f0\b0 Syntax:\
+						\{\
+							return(\
+										<div  \{props.key\}> </div>\
+									  )\
+						\}\
+\
+		- Keys are dynamic references, you can define any name. But have to 		  access only by specified name.\
+
+\f1\b 		
+\f0\b0 - A controlled component can change and conditionally render different\
+		  layouts. \
+\
+		Syntax:\
+				function Component(props)\
+				\{	\
+					  if(props.key===\'93value\'94)\
+					  \{	\
+						 return( <A />);\
+					  \}\
+					  else\
+					  \{\
+						return (<B /> );\
+					  \}\
+				\}
+\f1\b \
+	 \
+ Ex:\
+	
+\f0\b0 src/controlled-components/navbar.jsx\
+ \
+	
+\f2\fs46 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 export\cf0 \strokec2  \cf3 \strokec3 function\cf0 \strokec2  Navbar(props)\cb1 \
+\cb4 \{\cb1 \
+\cb4      \cf3 \strokec3 if\cf0 \strokec2 (props.orientation===\cf5 \strokec5 'horizontal'\cf0 \strokec2 ) \{\cb1 \
+\cb4           \cf3 \strokec3 return\cf0 \strokec2 (\cb1 \
+\cb4         \cf6 \strokec6 <nav\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf3 \strokec3 \{\cf5 \strokec5 `d-flex flex-row \cf3 \strokec3 $\{\cf0 \strokec2 props.theme\cf3 \strokec3 \}\cf5 \strokec5  my-2 justify-content-between align-items-center p-4 border border-1 border-secondary`\cf3 \strokec3 \}\cf6 \strokec6 >\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <div>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 props.logo\cf3 \strokec3 \}\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "fw-bold"\cf6 \strokec6 >\cf3 \strokec3 \{\cf0 \strokec2 props.brand\cf3 \strokec3 \}\cf6 \strokec6 </span>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <div>\cf0 \cb1 \strokec2 \
+\cb4                 \cf3 \strokec3 \{\cf0 \cb1 \strokec2 \
+\cb4                     props.menuitems.map(item\cf3 \strokec3 =>\cf0 \strokec2  \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "mx-3"\cf0 \strokec2  \cf7 \strokec7 key\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 item\cf3 \strokec3 \}\cf6 \strokec6 >\cf3 \strokec3 \{\cf0 \strokec2 item\cf3 \strokec3 \}\cf6 \strokec6 </span>\cf0 \strokec2 )\cb1 \
+\cb4                 \cf3 \strokec3 \}\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <div>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "bi bi-heart"\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "bi bi-person mx-4"\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "bi bi-gift"\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 </nav>\cf0 \cb1 \strokec2 \
+\cb4     )\cb1 \
+\cb4      \} \cf3 \strokec3 else\cf0 \strokec2  \{\cb1 \
+\cb4         \cf3 \strokec3 return\cf0 \strokec2 (\cb1 \
+\cb4         \cf6 \strokec6 <nav\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf3 \strokec3 \{\cf5 \strokec5 `d-flex flex-column \cf3 \strokec3 $\{\cf0 \strokec2 props.theme\cf3 \strokec3 \}\cf5 \strokec5  my-2 justify-content-between align-items-center p-2 border border-1 border-secondary`\cf3 \strokec3 \}\cf0 \strokec2  \cf7 \strokec7 style\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 \{width:\cf5 \strokec5 '200px'\cf0 \strokec2 , height:\cf5 \strokec5 '400px'\cf0 \strokec2 \}\cf3 \strokec3 \}\cf6 \strokec6 >\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <div>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 props.logo\cf3 \strokec3 \}\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "fw-bold"\cf6 \strokec6 >\cf3 \strokec3 \{\cf0 \strokec2 props.brand\cf3 \strokec3 \}\cf6 \strokec6 </span>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <div>\cf0 \cb1 \strokec2 \
+\cb4                 \cf3 \strokec3 \{\cf0 \cb1 \strokec2 \
+\cb4                     props.menuitems.map(item\cf3 \strokec3 =>\cf0 \strokec2  \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "my-4 btn w-100 btn-light d-block"\cf0 \strokec2  \cf7 \strokec7 key\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 item\cf3 \strokec3 \}\cf6 \strokec6 >\cf3 \strokec3 \{\cf0 \strokec2 item\cf3 \strokec3 \}\cf6 \strokec6 </span>\cf0 \strokec2 )\cb1 \
+\cb4                 \cf3 \strokec3 \}\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <div>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "bi bi-heart"\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "bi bi-person mx-4"\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <span\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "bi bi-gift"\cf6 \strokec6 ></span>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 </nav>\cf0 \cb1 \strokec2 \
+\cb4     )\cb1 \
+\cb4      \}\cb1 \
+\cb4 \}\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs70 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+	
+\f0\b0 src/components/home-demo/home-demo.jsx\
+\
+	
+\f2\fs46 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 import\cf0 \strokec2  \{ Navbar \} \cf3 \strokec3 from\cf0 \strokec2  \cf5 \strokec5 "../../controlled-components/navbar"\cf0 \strokec2 ;\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\cf3 \cb4 \strokec3 export\cf0 \strokec2  \cf3 \strokec3 function\cf0 \strokec2  HomeDemo()\{\cb1 \
+\cb4     \cf3 \strokec3 return\cf0 \strokec2 (\cb1 \
+\cb4         \cf6 \strokec6 <div\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "container-fluid"\cf6 \strokec6 >\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <Navbar\cf0 \strokec2  \cf7 \strokec7 orientation\cf0 \strokec2 =\cf5 \strokec5 "horizontal"\cf0 \strokec2  \cf7 \strokec7 logo\cf0 \strokec2 =\cf5 \strokec5 "bi bi-amazon"\cf0 \strokec2  \cf7 \strokec7 theme\cf0 \strokec2 =\cf5 \strokec5 "bg-primary text-white"\cf0 \strokec2  \cf7 \strokec7 brand\cf0 \strokec2 =\cf5 \strokec5 "Amazon"\cf0 \strokec2  \cf7 \strokec7 menuitems\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 [\cf5 \strokec5 'Home'\cf0 \strokec2 , \cf5 \strokec5 'Shop'\cf0 \strokec2 , \cf5 \strokec5 'Pages'\cf0 \strokec2 , \cf5 \strokec5 'Offers'\cf0 \strokec2 , \cf5 \strokec5 'Contact'\cf0 \strokec2 ]\cf3 \strokec3 \}\cf0 \strokec2  \cf6 \strokec6 />\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <Navbar\cf0 \strokec2  \cf7 \strokec7 orientation\cf0 \strokec2 =\cf5 \strokec5 "vertical"\cf0 \strokec2  \cf7 \strokec7 logo\cf0 \strokec2 =\cf5 \strokec5 "bi bi-facebook"\cf0 \strokec2  \cf7 \strokec7 theme\cf0 \strokec2 =\cf5 \strokec5 "bg-success text-light"\cf0 \strokec2  \cf7 \strokec7 brand\cf0 \strokec2 =\cf5 \strokec5 "Fashion"\cf0 \strokec2  \cf7 \strokec7 menuitems\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 [\cf5 \strokec5 'Fashion Store'\cf0 \strokec2 , \cf5 \strokec5 'Electronics'\cf0 \strokec2 , \cf5 \strokec5 'Footwear'\cf0 \strokec2 , \cf5 \strokec5 'Offers'\cf0 \strokec2 ]\cf3 \strokec3 \}\cf0 \strokec2  \cf6 \strokec6 />\cf0 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4     )\cb1 \
+\cb4 \}\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs70 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+ 
+\f0\b0 Src/controlled-components/data-grid.jsx\
+\
+	
+\f2\fs46 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 export\cf0 \strokec2  \cf3 \strokec3 function\cf0 \strokec2  DataGrid(props)\{\cb1 \
+\cb4     \cf3 \strokec3 return\cf0 \strokec2 (\cb1 \
+\cb4         \cf6 \strokec6 <table\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "table caption-top table-hover"\cf6 \strokec6 >\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <caption>\cf3 \strokec3 \{\cf0 \strokec2 props.caption\cf3 \strokec3 \}\cf6 \strokec6 </caption>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <thead>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 <tr>\cf0 \cb1 \strokec2 \
+\cb4                     \cf3 \strokec3 \{\cf0 \cb1 \strokec2 \
+\cb4                         Object.keys(props.data[\cf8 \cb4 \strokec8 0\cf0 \cb4 \strokec2 ]).map(key\cf3 \strokec3 =>\cf0 \strokec2  \cf6 \strokec6 <th\cf0 \strokec2  \cf7 \strokec7 key\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 key\cf3 \strokec3 \}\cf6 \strokec6 >\cf3 \strokec3 \{\cf0 \strokec2 key\cf3 \strokec3 \}\cf6 \strokec6 </th>\cf0 \strokec2 )\cb1 \
+\cb4                     \cf3 \strokec3 \}\cf0 \cb1 \strokec2 \
+\cb4                     \cf6 \strokec6 <th>\cf0 \cb1 \strokec2 \
+\cb4                         Actions\cb1 \
+\cb4                     \cf6 \strokec6 </th>\cf0 \cb1 \strokec2 \
+\cb4                 \cf6 \strokec6 </tr>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </thead>\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <tbody>\cf0 \cb1 \strokec2 \
+\cb4                 \cf3 \strokec3 \{\cf0 \cb1 \strokec2 \
+\cb4                     props.data.map(item \cf3 \strokec3 =>\cf0 \cb1 \strokec2 \
+\cb4                         \cf6 \strokec6 <tr\cf0 \strokec2  \cf7 \strokec7 key\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 item\cf3 \strokec3 \}\cf6 \strokec6 >\cf0 \cb1 \strokec2 \
+\cb4                             \cf3 \strokec3 \{\cf0 \cb1 \strokec2 \
+\cb4                                 Object.keys(item).map(key\cf3 \strokec3 =>\cf0 \strokec2  \cf6 \strokec6 <td\cf0 \strokec2  \cf7 \strokec7 key\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 key\cf3 \strokec3 \}\cf6 \strokec6 >\cf3 \strokec3 \{\cf0 \strokec2 item[key]\cf3 \strokec3 \}\cf6 \strokec6 </td>\cf0 \strokec2 )\cb1 \
+\cb4                             \cf3 \strokec3 \}\cf0 \cb1 \strokec2 \
+\cb4                             \cf6 \strokec6 <td>\cf0 \cb1 \strokec2 \
+\cb4                                 \cf6 \strokec6 <button\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "btn btn-danger bi bi-trash"\cf6 \strokec6 ></button>\cf0 \cb1 \strokec2 \
+\cb4                                 \cf6 \strokec6 <button\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "btn btn-warning mx-2 bi bi-pen"\cf6 \strokec6 ></button>\cf0 \cb1 \strokec2 \
+\cb4                                 \cf6 \strokec6 <button\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "btn btn-primary bi bi-eye"\cf6 \strokec6 ></button>\cf0 \cb1 \strokec2 \
+\cb4                             \cf6 \strokec6 </td>\cf0 \cb1 \strokec2 \
+\cb4                         \cf6 \strokec6 </tr>\cf0 \cb1 \strokec2 \
+\cb4                     )\cb1 \
+\cb4                 \cf3 \strokec3 \}\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 </tbody>\cf0 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 </table>\cf0 \cb1 \strokec2 \
+\cb4     )\cb1 \
+\cb4 \}\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs70 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+
+\f0\b0  Src/components/home-demo/Home-demo.jsx\
+
+\f1\b \
+\
+ 
+\f2\b0\fs46 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 import\cf0 \strokec2  \{ useState \} \cf3 \strokec3 from\cf0 \strokec2  \cf5 \strokec5 "react"\cf0 \cb1 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \{ DataGrid \} \cf3 \strokec3 from\cf0 \strokec2  \cf5 \strokec5 "../../controlled-components/data-grid"\cf0 \strokec2 ;\cb1 \
+\
+\cf3 \cb4 \strokec3 export\cf0 \strokec2  \cf3 \strokec3 function\cf0 \strokec2  HomeDemo()\{\cb1 \
+\cb4     \cf3 \strokec3 const\cf0 \strokec2  [products] = useState([\{Name:\cf5 \strokec5 'TV'\cf0 \strokec2 , Price:\cf8 \cb4 \strokec8 34000\cf0 \cb4 \strokec2 \}, \{Name:\cf5 \strokec5 'Mobile'\cf0 \strokec2 , Price:\cf8 \cb4 \strokec8 40000\cf0 \cb4 \strokec2 \}]);\cb1 \
+\cb4     \cf3 \strokec3 const\cf0 \strokec2  [employees] = useState([\{FirstName: \cf5 \strokec5 'Raj'\cf0 \strokec2 , LastName:\cf5 \strokec5 'Kumar'\cf0 \strokec2 , Desigation:\cf5 \strokec5 'Manager'\cf0 \strokec2 , Salary: \cf8 \cb4 \strokec8 45000\cf0 \cb4 \strokec2 \}, \{FirstName: \cf5 \strokec5 'Raj'\cf0 \strokec2 , LastName:\cf5 \strokec5 'Kumar'\cf0 \strokec2 , Desigation:\cf5 \strokec5 'Manager'\cf0 \strokec2 , Salary: \cf8 \cb4 \strokec8 45000\cf0 \cb4 \strokec2 \},\{FirstName: \cf5 \strokec5 'Raj'\cf0 \strokec2 , LastName:\cf5 \strokec5 'Kumar'\cf0 \strokec2 , Desigation:\cf5 \strokec5 'Manager'\cf0 \strokec2 , Salary: \cf8 \cb4 \strokec8 45000\cf0 \cb4 \strokec2 \},\{FirstName: \cf5 \strokec5 'Raj'\cf0 \strokec2 , LastName:\cf5 \strokec5 'Kumar'\cf0 \strokec2 , Desigation:\cf5 \strokec5 'Manager'\cf0 \strokec2 , Salary: \cf8 \cb4 \strokec8 45000\cf0 \cb4 \strokec2 \}]);\cb1 \
+\cb4     \cf3 \strokec3 return\cf0 \strokec2 (\cb1 \
+\cb4         \cf6 \strokec6 <div\cf0 \strokec2  \cf7 \strokec7 className\cf0 \strokec2 =\cf5 \strokec5 "container-fluid"\cf6 \strokec6 >\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <DataGrid\cf0 \strokec2  \cf7 \strokec7 caption\cf0 \strokec2 =\cf5 \strokec5 "Products Table"\cf0 \strokec2  \cf7 \strokec7 data\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 products\cf3 \strokec3 \}\cf0 \strokec2  \cf6 \strokec6 />\cf0 \cb1 \strokec2 \
+\cb4             \cf6 \strokec6 <DataGrid\cf0 \strokec2  \cf7 \strokec7 caption\cf0 \strokec2 =\cf5 \strokec5 "Employee Details"\cf0 \strokec2  \cf7 \strokec7 data\cf0 \strokec2 =\cf3 \strokec3 \{\cf0 \strokec2 employees\cf3 \strokec3 \}\cf0 \strokec2  \cf6 \strokec6 />\cf0 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 </div>\cf0 \cb1 \strokec2 \
+\cb4     )\cb1 \
+\cb4 \}\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs70 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\
+\
+\
+\
+\
+\
+}
